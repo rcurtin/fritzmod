@@ -1222,7 +1222,7 @@
       <!-- Icon is not used -->
     </Gui>
     <AchievementEffect_ModifyBankAccount Duration="0" Scope="LocalEmpire" Amount="-100"/>
-    <AchievementEffect_SpawnPirateFleet Scope="RandomEmpire" Duration="0" FleetCount="2" PercentShipPerFleet="0.5" >
+    <AchievementEffect_SpawnPirateFleet Scope="RandomEmpire" Duration="0" FleetCount="2" PercentShipPerFleet="0.05" >
       <ShipDesigns>BlockaderPiratesDesign</ShipDesigns>
     </AchievementEffect_SpawnPirateFleet>
   </InteractiveEventOption>
@@ -1235,7 +1235,7 @@
       <!-- Icon is not used -->
     </Gui>
     <AchievementEffect_ModifyBankAccount Duration="0" Scope="LocalEmpire" Amount="-500"/>
-    <AchievementEffect_SpawnPirateFleet Scope="Enemies" Duration="0" FleetCount="1" PercentShipPerFleet="0.5" >
+    <AchievementEffect_SpawnPirateFleet Scope="Enemies" Duration="0" FleetCount="1" PercentShipPerFleet="0.05" >
       <ShipDesigns>BlockaderPiratesDesign</ShipDesigns>
     </AchievementEffect_SpawnPirateFleet>
   </InteractiveEventOption>
@@ -1247,7 +1247,7 @@
       <Icon Large="Gui/DynamicBitmaps/Events/GlobalRandomEvent04"/>
       <!-- Icon is not used -->
     </Gui>
-    <AchievementEffect_SpawnPirateFleet Duration="0" FleetCount="3" PercentShipPerFleet="0.5" >
+    <AchievementEffect_SpawnPirateFleet Duration="0" FleetCount="3" PercentShipPerFleet="0.05" >
       <ShipDesigns>BlockaderPiratesDesign</ShipDesigns>
     </AchievementEffect_SpawnPirateFleet>
   </InteractiveEventOption>
@@ -1276,7 +1276,7 @@
       <!-- Icon is not used -->
     </Gui>
     <AchievementEffect_ModifyBankAccount Duration="0" Scope="LocalEmpire" Amount="-200"/>
-    <AchievementEffect_SpawnPirateFleet Scope="RandomEmpire" Duration="0" FleetCount="4" PercentShipPerFleet="0.75" >
+    <AchievementEffect_SpawnPirateFleet Scope="RandomEmpire" Duration="0" FleetCount="4" PercentShipPerFleet="0.075" >
       <ShipDesigns>BlockaderPiratesDesign</ShipDesigns>
     </AchievementEffect_SpawnPirateFleet>
   </InteractiveEventOption>
@@ -1289,7 +1289,7 @@
       <!-- Icon is not used -->
     </Gui>
     <AchievementEffect_ModifyBankAccount Duration="0" Scope="LocalEmpire" Amount="-1000"/>
-    <AchievementEffect_SpawnPirateFleet Scope="Enemies" Duration="0" FleetCount="2" PercentShipPerFleet="0.75" >
+    <AchievementEffect_SpawnPirateFleet Scope="Enemies" Duration="0" FleetCount="2" PercentShipPerFleet="0.075" >
       <ShipDesigns>BlockaderPiratesDesign</ShipDesigns>
     </AchievementEffect_SpawnPirateFleet>
   </InteractiveEventOption>
@@ -1301,7 +1301,7 @@
       <Icon Large="Gui/DynamicBitmaps/Events/GlobalRandomEvent04"/>
       <!-- Icon is not used -->
     </Gui>
-    <AchievementEffect_SpawnPirateFleet Duration="0" FleetCount="5" PercentShipPerFleet="0.75" >
+    <AchievementEffect_SpawnPirateFleet Duration="0" FleetCount="5" PercentShipPerFleet="0.075" >
       <ShipDesigns>BlockaderPiratesDesign</ShipDesigns>
     </AchievementEffect_SpawnPirateFleet>
   </InteractiveEventOption>
@@ -1330,7 +1330,7 @@
       <!-- Icon is not used -->
     </Gui>
     <AchievementEffect_ModifyBankAccount Duration="20" Scope="LocalEmpire" Amount="-500"/>
-    <AchievementEffect_SpawnPirateFleet Scope="RandomEmpire" Duration="0" FleetCount="4" PercentShipPerFleet="1" >
+    <AchievementEffect_SpawnPirateFleet Scope="RandomEmpire" Duration="0" FleetCount="4" PercentShipPerFleet="0.15" >
       <ShipDesigns>BlockaderPiratesDesign</ShipDesigns>
     </AchievementEffect_SpawnPirateFleet>
   </InteractiveEventOption>
@@ -1343,7 +1343,7 @@
       <!-- Icon is not used -->
     </Gui>
     <AchievementEffect_ModifyBankAccount Duration="20" Scope="LocalEmpire" Amount="-2500"/>
-    <AchievementEffect_SpawnPirateFleet Scope="Enemies" Duration="0" FleetCount="2" PercentShipPerFleet="1" >
+    <AchievementEffect_SpawnPirateFleet Scope="Enemies" Duration="0" FleetCount="2" PercentShipPerFleet="0.15" >
       <ShipDesigns>BlockaderPiratesDesign</ShipDesigns>
     </AchievementEffect_SpawnPirateFleet>
   </InteractiveEventOption>
@@ -1355,7 +1355,7 @@
       <Icon Large="Gui/DynamicBitmaps/Events/GlobalRandomEvent04"/>
       <!-- Icon is not used -->
     </Gui>
-    <AchievementEffect_SpawnPirateFleet Duration="20" TurnsBetweenExecutions="10" FleetCount="5" PercentShipPerFleet="1" >
+    <AchievementEffect_SpawnPirateFleet Duration="20" TurnsBetweenExecutions="10" FleetCount="5" PercentShipPerFleet="0.15" >
       <ShipDesigns>BlockaderPiratesDesign</ShipDesigns>
     </AchievementEffect_SpawnPirateFleet>
   </InteractiveEventOption>
