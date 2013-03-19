@@ -243,6 +243,7 @@
       <SimulationObjectPropertyModifierDescriptor TargetProperty="OverColonizationApproval" Value="$(OverColonizationStarSystemCount)" OperationType="Addition" Path="ClassEmpire/ClassStarSystem"/>
       <!-- used by the new upkeep formula; multiply each ship's upkeep by the MaxCommandPoint of the Empire -->
 	  <SimulationObjectPropertyModifierDescriptor TargetProperty="Upkeep" Value="$(MaxCommandPoint)" OperationType="Multiplication" Path="ClassEmpire//ClassShip"/>
+    <SimulationObjectPropertyModifierDescriptor TargetProperty="Upkeep" Value="0.05" OperationType="Multiplication" Path="ClassEmpire//ClassShip"/>
 	  
     </SimulationObjectPropertyModifierDescriptors>
   </SimulationObjectDescriptor>
