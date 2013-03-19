@@ -1,291 +1,276 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <GalaxyShapes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<GalaxyShape Name="GalaxyDisk" MinEmpires="2" MaxEmpires="16">
+		<SymetryOptions>
+			<SymetryOption PlayerNum="2"/>
+			<SymetryOption PlayerNum="4"/>
+			<SymetryOption PlayerNum="6"/>
+			<SymetryOption PlayerNum="8"/>
+		</SymetryOptions>
+		<Script>
+			<![CDATA[
+var ArmNumber = Configuration.ArmNumber();
+var EmpiresNumber = Configuration.EmpiresNumber();
+var Population = Configuration.Population();
+var angle = 360 / ArmNumber;
+var hsize = Math.sqrt(Population) * 15 * ArmNumber / 8;
+var arc = Arc(0, hsize, angle);
+var arms = new Array();
+for(var i = 0; i < ArmNumber; i++)
+{
+	arms[i] = Constellation();
+	arms[i].GenerateStarSystems(arc, Population);
+	arms[i].Translate(0.1 * hsize, 0.1 * hsize);
+	arms[i].Rotate(angle * i);
+	arms[i].GenerateWarps();
+}
+for(var i = 0; i < ArmNumber; i++)
+{
+	Connect(arms[i], arms[(i+1)%ArmNumber]);
+}
 
-  <GalaxyShape Name="GalaxySpiral8"
-              DensityMap="./Density/GalaxySpiral8_Density.tga"
-              RegionMap="./Regions/GalaxySpiral8_Regions.tga"
-              MinConstellations="9"
-              MaxConstellations="17"
-              MinEmpires="2"
-              MaxEmpires="8">
-    <SymetryOptions>
-      <SymetryOption PlayerNum="2"/>
-      <SymetryOption PlayerNum="4"/>
-      <SymetryOption PlayerNum="8"/>
-    </SymetryOptions>
-    <Regions>
-      <Region color="#FFFFFF" empirestart="0"/>
-      <Region color="#FFFF00" empirestart="1"/><!-- yellow -->
-      <Region color="#00FFFF" empirestart="1"/><!-- teal -->
-      <Region color="#008080" empirestart="1"/><!-- dark-teal -->
-      <Region color="#FF00FF" empirestart="1"/><!-- pink -->
-      <Region color="#800080" empirestart="1"/><!-- purple -->
-      <Region color="#0000FF" empirestart="1"/><!-- blue -->
-      <Region color="#00FF00" empirestart="1"/><!-- green -->
-      <Region color="#FF0000" empirestart="1"/><!-- red -->
-    </Regions>
-    <Topology>
-      <Link RegionA="#FFFF00" RegionB="#FFFFFF"/>
-      <Link RegionA="#FF0000" RegionB="#FFFFFF"/>
-      <Link RegionA="#FF00FF" RegionB="#FFFFFF"/>
-      <Link RegionA="#0000FF" RegionB="#FFFFFF"/>
-      <Link RegionA="#00FFFF" RegionB="#FFFFFF"/>
-      <Link RegionA="#00FF00" RegionB="#FFFFFF"/>
-      <Link RegionA="#008080" RegionB="#FFFFFF"/>
-      <Link RegionA="#800080" RegionB="#FFFFFF"/>
-    </Topology>
-    <GalaxyViewLayout Path="Prefabs/Environment/Galaxy/Galaxy_Spiral8_A" Weight="1"/>
-    <GalaxyViewLayout Path="Prefabs/Environment/Galaxy/Galaxy_Spiral8_C" Weight="1"/>
-    <GalaxyViewLayout Path="Prefabs/Environment/Galaxy/Galaxy_Spiral8_D" Weight="1"/>
-  </GalaxyShape>
-  
-  <GalaxyShape Name="GalaxySpiral4"
-              DensityMap="./Density/GalaxySpiral4_Density.tga"
-              RegionMap="./Regions/GalaxySpiral4_Regions.tga"
-              MinConstellations="5"
-              MaxConstellations="9"
-              MinEmpires="2"
-              MaxEmpires="4">
-    <SymetryOptions>
-      <SymetryOption PlayerNum="2"/>
-      <SymetryOption PlayerNum="4"/>
-    </SymetryOptions>
-    <Regions>
-      <Region color="#FFFFFF" empirestart="0"/>
-      <Region color="#FFFF00" empirestart="1"/><!-- yellow -->
-      <Region color="#00FFFF" empirestart="1"/><!-- teal -->
-      <Region color="#008080" empirestart="1"/><!-- dark-teal -->
-      <Region color="#FF00FF" empirestart="1"/><!-- pink -->
-      <Region color="#800080" empirestart="1"/><!-- purple -->
-      <Region color="#0000FF" empirestart="1"/><!-- blue -->
-      <Region color="#00FF00" empirestart="1"/><!-- green -->
-      <Region color="#FF0000" empirestart="1"/><!-- red -->
-    </Regions>
-    <Topology>
-      <Link RegionA="#FF0000" RegionB="#FFFF00"/>
-      <Link RegionA="#0000FF" RegionB="#FF00FF"/>
-      <Link RegionA="#00FF00" RegionB="#00FFFF"/>
-      <Link RegionA="#800080" RegionB="#008080"/>
-      <!-- Link RegionA="#800080" RegionB="#FFFF00"/ -->
-      <!-- Link RegionA="#FFFF00" RegionB="#FF00FF"/ -->
-      <!-- Link RegionA="#FF00FF" RegionB="#00FFFF"/ -->
-      <!-- Link RegionA="#00FFFF" RegionB="#008080"/ -->
-      <Link RegionA="#FFFF00" RegionB="#FFFFFF"/>
-      <Link RegionA="#FF00FF" RegionB="#FFFFFF"/>
-      <Link RegionA="#00FFFF" RegionB="#FFFFFF"/>
-      <Link RegionA="#008080" RegionB="#FFFFFF"/>
-    </Topology>
-    <GalaxyViewLayout Path="Prefabs/Environment/Galaxy/Galaxy_Spiral4_01_A" Weight="1"/>
-    <GalaxyViewLayout Path="Prefabs/Environment/Galaxy/Galaxy_Spiral4_01_B" Weight="1"/>
-  </GalaxyShape>
+var diff = ArmNumber / EmpiresNumber;
+var EmpireID = 0;
+for(var i = 0; EmpireID < EmpiresNumber; i+= diff)
+{
+	arms[Math.floor(i)%ArmNumber].GenerateHome(EmpireID);
+	EmpireID++;
+}
+			]]>
+		</Script>
+		<GalaxyViewLayout Path="Prefabs/Environment/Galaxy/Galaxy_Disk_A" Weight="1"/>
+		
+		<Regions>
+			<Region color="#FFFFFF" empirestart="0"/>
+			<Region color="#FFFF00" empirestart="1"/>
+			<!-- yellow -->
+			<Region color="#00FFFF" empirestart="1"/>
+			<!-- teal -->
+			<Region color="#008080" empirestart="1"/>
+			<!-- dark-teal -->
+			<Region color="#FF00FF" empirestart="1"/>
+			<!-- pink -->
+			<Region color="#800080" empirestart="1"/>
+			<!-- purple -->
+			<Region color="#0000FF" empirestart="1"/>
+			<!-- blue -->
+			<Region color="#00FF00" empirestart="1"/>
+			<!-- green -->
+			<Region color="#FF0000" empirestart="1"/>
+			<!-- red -->
+		</Regions>
+	</GalaxyShape>
+	
+	<GalaxyShape Name="GalaxyDiskC" MinEmpires="2" MaxEmpires="16">
+		<SymetryOptions>
+			<SymetryOption PlayerNum="2"/>
+			<SymetryOption PlayerNum="4"/>
+			<SymetryOption PlayerNum="8"/>
+		</SymetryOptions>
+		<Script>
+			<![CDATA[
+var ArmNumber = Configuration.ArmNumber();
+var EmpiresNumber = Configuration.EmpiresNumber();
+var Population = Configuration.Population();
+var angle = 360 / ArmNumber;
+var hsize = Math.sqrt(Population) * 15 * ArmNumber / 8;
+var circle = Ring(0, 0.3 * hsize);
+var arc = Arc(0.3 * hsize, hsize, angle);
+var core = Constellation();
+core.GenerateStarSystems(circle, Population / 2);
+core.GenerateWarps();
+var arms = new Array();
+for(var i = 0; i < ArmNumber; i++)
+{
+	arms[i] = Constellation();
+	arms[i].GenerateStarSystems(arc, Population);
+	arms[i].Translate(0.1 * hsize, 0.1 * hsize);
+	arms[i].Rotate(angle * i);
+	arms[i].GenerateWarps();
+}
+for(var i = 0; i < ArmNumber; i++)
+{
+	Connect(core, arms[i]);
+	Connect(arms[i], arms[(i+1)%ArmNumber]);
+}
 
-  <GalaxyShape Name="GalaxySpiral2"
-              DensityMap="./Density/GalaxySpiral2_Density.tga"
-              RegionMap="./Regions/GalaxySpiral2_Regions.tga"
-              MinConstellations="2"
-              MaxConstellations="5"
-              MinEmpires="2"
-              MaxEmpires="4">
-    <SymetryOptions>
-      <SymetryOption PlayerNum="2"/>
-      <SymetryOption PlayerNum="4"/>
-    </SymetryOptions>
-    <Regions>
-      <Region color="#FFFFFF" empirestart="0"/>
-      <Region color="#FF0000" empirestart="1"/><!-- red -->
-      <Region color="#008080" empirestart="1"/><!-- dark-teal -->
-      <Region color="#0000FF" empirestart="1"/><!-- blue -->
-      <Region color="#00FFFF" empirestart="1"/><!-- teal -->
-      <Region color="#FF00FF" empirestart="1"/><!-- pink -->
-      <Region color="#00FF00" empirestart="1"/><!-- green -->
-      <Region color="#800080" empirestart="1"/><!-- purple -->
-      <Region color="#FFFF00" empirestart="1"/><!-- yellow -->
-    </Regions>
-    <Topology>
-      <Link RegionA="#FFFF00" RegionB="#FF0000"/>
-      <Link RegionA="#FF0000" RegionB="#FF00FF"/>
-      <Link RegionA="#FF00FF" RegionB="#0000FF"/>
-      <Link RegionA="#00FFFF" RegionB="#00FF00"/>
-      <Link RegionA="#00FF00" RegionB="#008080"/>
-      <Link RegionA="#008080" RegionB="#800080"/>
-      <Link RegionA="#FF0000" RegionB="#FFFFFF"/>
-      <Link RegionA="#FF00FF" RegionB="#FFFFFF"/>
-      <Link RegionA="#0000FF" RegionB="#FFFFFF"/>
-      <Link RegionA="#00FFFF" RegionB="#FFFFFF"/>
-      <Link RegionA="#00FF00" RegionB="#FFFFFF"/>
-      <Link RegionA="#008080" RegionB="#FFFFFF"/>
-    </Topology>
-    <GalaxyViewLayout Path="Prefabs/Environment/Galaxy/Galaxy_Spiral2_C" Weight="1"/>
-    <GalaxyViewLayout Path="Prefabs/Environment/Galaxy/Galaxy_Spiral2_D" Weight="1"/>
-  </GalaxyShape>
+var diff = ArmNumber / EmpiresNumber;
+var EmpireID = 0;
+for(var i = 0; EmpireID < EmpiresNumber; i+= diff)
+{
+	arms[Math.floor(i)%ArmNumber].GenerateHome(EmpireID);
+	EmpireID++;
+}
+			]]>
+		</Script>
+		<GalaxyViewLayout Path="Prefabs/Environment/Galaxy/Galaxy_Disk4_A" Weight="1"/>
+		<GalaxyViewLayout Path="Prefabs/Environment/Galaxy/Galaxy_Disk4_D" Weight="1"/>
+		<Regions>
+			<Region color="#FFFFFF" empirestart="0"/>
+			<Region color="#FFFF00" empirestart="1"/>
+			<!-- yellow -->
+			<Region color="#00FFFF" empirestart="1"/>
+			<!-- teal -->
+			<Region color="#008080" empirestart="1"/>
+			<!-- dark-teal -->
+			<Region color="#FF00FF" empirestart="1"/>
+			<!-- pink -->
+			<Region color="#800080" empirestart="1"/>
+			<!-- purple -->
+			<Region color="#0000FF" empirestart="1"/>
+			<!-- blue -->
+			<Region color="#00FF00" empirestart="1"/>
+			<!-- green -->
+			<Region color="#FF0000" empirestart="1"/>
+			<!-- red -->
+		</Regions>
+	</GalaxyShape>
+	
+	<GalaxyShape Name="GalaxyDisk2" MinEmpires="2" MaxEmpires="16">
+		<SymetryOptions>
+			<SymetryOption PlayerNum="2"/>
+			<SymetryOption PlayerNum="4"/>
+			<SymetryOption PlayerNum="8"/>
+		</SymetryOptions>
+		<Script>
+			<![CDATA[
+var ArmNumber = Configuration.ArmNumber();
+var EmpiresNumber = Configuration.EmpiresNumber();
+var Population = Configuration.Population();
+var angle = 360 / ArmNumber;
+var hsize = Math.sqrt(Population) * 20 * ArmNumber / 8;
+var circle = Ring(0, 0.2 * hsize);
+var innerArc = Arc(0.2 * hsize, 0.6 * hsize, angle);
+var outerArc = Arc(0.6 * hsize, hsize, angle);
+var core = Constellation();
+core.GenerateStarSystems(circle, Population / 2);
+core.GenerateWarps();
 
-  <GalaxyShape Name="GalaxyDisk"
-              DensityMap="./Density/GalaxyDisk_Density.tga"
-              RegionMap="./Regions/GalaxyDisk_Regions.tga"
-              MinConstellations="2"
-              MaxConstellations="8"
-              MinEmpires="2"
-              MaxEmpires="8">
-    <SymetryOptions>
-      <SymetryOption PlayerNum="2"/>
-      <SymetryOption PlayerNum="4"/>
-      <SymetryOption PlayerNum="6"/>
-      <SymetryOption PlayerNum="8"/>
-    </SymetryOptions>
-    <Regions>
-      <Region color="#FFFFFF" empirestart="0"/>
-      <Region color="#FFFF00" empirestart="1"/><!-- yellow -->
-      <Region color="#00FFFF" empirestart="1"/><!-- teal -->
-      <Region color="#008080" empirestart="1"/><!-- dark-teal -->
-      <Region color="#FF00FF" empirestart="1"/><!-- pink -->
-      <Region color="#800080" empirestart="1"/><!-- purple -->
-      <Region color="#0000FF" empirestart="1"/><!-- blue -->
-      <Region color="#00FF00" empirestart="1"/><!-- green -->
-      <Region color="#FF0000" empirestart="1"/><!-- red -->
-    </Regions>
-    <Topology>
-      <Link RegionA="#FFFF00" RegionB="#FF0000"/>
-      <Link RegionA="#FF0000" RegionB="#FF00FF"/>
-      <Link RegionA="#FF00FF" RegionB="#0000FF"/>
-      <Link RegionA="#0000FF" RegionB="#00FFFF"/>
-      <Link RegionA="#00FFFF" RegionB="#00FF00"/>
-      <Link RegionA="#00FF00" RegionB="#008080"/>
-      <Link RegionA="#008080" RegionB="#800080"/>
-      <Link RegionA="#800080" RegionB="#FFFF00"/>
-    </Topology>
-    <GalaxyViewLayout Path="Prefabs/Environment/Galaxy/Galaxy_Disk_A" Weight="1"/>
-  </GalaxyShape>
+var innerArms = new Array();
+for(var i = 0; i < ArmNumber; i++)
+{
+	innerArms[i] = Constellation();
+	innerArms[i].GenerateStarSystems(innerArc, Population * 0.8);
+	innerArms[i].Translate(0.1 * hsize, 0.1 * hsize);
+	innerArms[i].Rotate(angle * i);
+	innerArms[i].GenerateWarps();
+}
 
-  <GalaxyShape Name="GalaxyDisk4"
-              DensityMap="./Density/GalaxyDisk4_Density.tga"
-              RegionMap="./Regions/GalaxyDisk4_Regions.tga"
-              MinConstellations="5"
-              MaxConstellations="9"
-              MinEmpires="2"
-              MaxEmpires="8">
-    <SymetryOptions>
-      <SymetryOption PlayerNum="2"/>
-      <SymetryOption PlayerNum="4"/>
-      <SymetryOption PlayerNum="8"/>
-    </SymetryOptions>
-    <Regions>
-      <Region color="#FFFFFF" empirestart="0"/>
-      <Region color="#FFFF00" empirestart="1"/><!-- yellow -->
-      <Region color="#00FFFF" empirestart="1"/><!-- teal -->
-      <Region color="#008080" empirestart="1"/><!-- dark-teal -->
-      <Region color="#FF00FF" empirestart="1"/><!-- pink -->
-      <Region color="#800080" empirestart="1"/><!-- purple -->
-      <Region color="#0000FF" empirestart="1"/><!-- blue -->
-      <Region color="#00FF00" empirestart="1"/><!-- green -->
-      <Region color="#FF0000" empirestart="1"/><!-- red -->
-    </Regions>
-    <Topology>
-      <Link RegionA="#FFFF00" RegionB="#FF0000"/>
-      <Link RegionA="#FF0000" RegionB="#FF00FF"/>
-      <Link RegionA="#FF00FF" RegionB="#0000FF"/>
-      <Link RegionA="#0000FF" RegionB="#00FFFF"/>
-      <Link RegionA="#00FFFF" RegionB="#00FF00"/>
-      <Link RegionA="#00FF00" RegionB="#008080"/>
-      <Link RegionA="#008080" RegionB="#800080"/>
-      <Link RegionA="#800080" RegionB="#FFFF00"/>
-      <Link RegionA="#FFFF00" RegionB="#FFFFFF"/>
-      <Link RegionA="#FF0000" RegionB="#FFFFFF"/>
-      <Link RegionA="#FF00FF" RegionB="#FFFFFF"/>
-      <Link RegionA="#0000FF" RegionB="#FFFFFF"/>
-      <Link RegionA="#00FFFF" RegionB="#FFFFFF"/>
-      <Link RegionA="#00FF00" RegionB="#FFFFFF"/>
-      <Link RegionA="#008080" RegionB="#FFFFFF"/>
-      <Link RegionA="#800080" RegionB="#FFFFFF"/>
-    </Topology>
-    <GalaxyViewLayout Path="Prefabs/Environment/Galaxy/Galaxy_Disk4_A" Weight="1"/>
-    <GalaxyViewLayout Path="Prefabs/Environment/Galaxy/Galaxy_Disk4_D" Weight="1"/>
-  </GalaxyShape>
+var outerArms = new Array();
+for(var i = 0; i < ArmNumber; i++)
+{
+	outerArms[i] = Constellation();
+	outerArms[i].GenerateStarSystems(outerArc, Population * 1.2);
+	outerArms[i].Translate(0.2 * hsize, 0.2 * hsize);
+	outerArms[i].Rotate(angle * i - angle / 2);
+	outerArms[i].GenerateWarps();
+}
 
-  <GalaxyShape Name="GalaxyOvoid"
-              DensityMap="./Density/GalaxyOvoid_Density.tga"
-              RegionMap="./Regions/GalaxyOvoid_Regions.tga"
-              MinConstellations="5"
-              MaxConstellations="9"
-              MinEmpires="2"
-              MaxEmpires="8">
-    <SymetryOptions>
-      <SymetryOption PlayerNum="2"/>
-      <SymetryOption PlayerNum="4"/>
-      <SymetryOption PlayerNum="6"/>
-      <SymetryOption PlayerNum="8"/>
-    </SymetryOptions>
-    <Regions>
-      <Region color="#FFFFFF" empirestart="0"/>
-      <Region color="#FFFF00" empirestart="1"/><!-- yellow -->
-      <Region color="#00FFFF" empirestart="1"/><!-- teal -->
-      <Region color="#008080" empirestart="1"/><!-- dark-teal -->
-      <Region color="#FF00FF" empirestart="1"/><!-- pink -->
-      <Region color="#800080" empirestart="1"/><!-- purple -->
-      <Region color="#0000FF" empirestart="1"/><!-- blue -->
-      <Region color="#00FF00" empirestart="1"/><!-- green -->
-      <Region color="#FF0000" empirestart="1"/><!-- red -->
-    </Regions>
-    <Topology>
-      <Link RegionA="#FFFF00" RegionB="#FF0000"/>
-      <Link RegionA="#FF0000" RegionB="#FF00FF"/>
-      <Link RegionA="#FF00FF" RegionB="#0000FF"/>
-      <Link RegionA="#0000FF" RegionB="#00FFFF"/>
-      <Link RegionA="#00FFFF" RegionB="#00FF00"/>
-      <Link RegionA="#00FF00" RegionB="#008080"/>
-      <Link RegionA="#008080" RegionB="#800080"/>
-      <Link RegionA="#800080" RegionB="#FFFF00"/>
-      <Link RegionA="#FFFF00" RegionB="#FFFFFF"/>
-      <Link RegionA="#FF0000" RegionB="#FFFFFF"/>
-      <Link RegionA="#FF00FF" RegionB="#FFFFFF"/>
-      <Link RegionA="#0000FF" RegionB="#FFFFFF"/>
-      <Link RegionA="#00FFFF" RegionB="#FFFFFF"/>
-      <Link RegionA="#00FF00" RegionB="#FFFFFF"/>
-      <Link RegionA="#008080" RegionB="#FFFFFF"/>
-      <Link RegionA="#800080" RegionB="#FFFFFF"/>
-    </Topology>
-    <GalaxyViewLayout Path="Prefabs/Environment/Galaxy/Galaxy_Ovoid_A" Weight="1"/>
-    <GalaxyViewLayout Path="Prefabs/Environment/Galaxy/Galaxy_Ovoid_C" Weight="1"/>
-  </GalaxyShape>
-  
-  <GalaxyShape Name="GalaxyTwinElliptical"
-              DensityMap="./Density/GalaxyTwinElliptical_Density.tga"
-              RegionMap="./Regions/GalaxyTwinElliptical_Regions.tga"
-              MinConstellations="9"
-              MaxConstellations="17"
-              MinEmpires="2"
-              MaxEmpires="8">
-    <SymetryOptions>
-      <SymetryOption PlayerNum="2"/>
-      <SymetryOption PlayerNum="4"/>
-      <SymetryOption PlayerNum="8"/>
-    </SymetryOptions>
-    <Regions>
-      <Region color="#FFFFFF" empirestart="0"/>
-      <Region color="#FFFF00" empirestart="1"/><!-- yellow -->
-      <Region color="#FF0000" empirestart="1"/><!-- red -->
-      <Region color="#FF00FF" empirestart="1"/><!-- pink -->
-      <Region color="#0000FF" empirestart="1"/><!-- blue -->
-      <Region color="#00FFFF" empirestart="1"/><!-- teal -->
-      <Region color="#00FF00" empirestart="1"/><!-- green -->
-      <Region color="#008080" empirestart="1"/><!-- dark-teal -->
-      <Region color="#800080" empirestart="1"/><!-- purple -->
-    </Regions>
-    <Topology>
-      <Link RegionA="#FFFF00" RegionB="#FF00FF"/>
-      <Link RegionA="#800080" RegionB="#FF0000"/>
-      <Link RegionA="#00FF00" RegionB="#800080"/>
-      <Link RegionA="#008080" RegionB="#FFFF00"/>
-      <Link RegionA="#00FFFF" RegionB="#FF00FF"/>
-      <Link RegionA="#0000FF" RegionB="#FF0000"/>
-      <Link RegionA="#0000FF" RegionB="#00FF00"/>
-      <Link RegionA="#00FFFF" RegionB="#008080"/>
-      <Link RegionA="#FFFF00" RegionB="#FFFFFF"/>
-      <Link RegionA="#FF0000" RegionB="#FFFFFF"/>
-      <Link RegionA="#FF00FF" RegionB="#FFFFFF"/>
-      <Link RegionA="#800080" RegionB="#FFFFFF"/>
-    </Topology>
-    <GalaxyViewLayout Path="Prefabs/Environment/Galaxy/Galaxy_TwinElliptical_B" Weight="1"/>
-    <GalaxyViewLayout Path="Prefabs/Environment/Galaxy/Galaxy_TwinElliptical_D" Weight="1"/>
-  </GalaxyShape>
-  
+for(var i = 0; i < ArmNumber; i++)
+{
+	Connect(core, innerArms[i]);
+	Connect(innerArms[i], outerArms[i]);
+	Connect(innerArms[i], outerArms[(i+1)%ArmNumber]);
+}
+
+var diff = ArmNumber / EmpiresNumber;
+var EmpireID = 0;
+for(var i = 0; EmpireID < EmpiresNumber; i+= diff)
+{
+	outerArms[Math.floor(i)%ArmNumber].GenerateHome(EmpireID);
+	EmpireID++;
+}
+			]]>
+		</Script>
+		<GalaxyViewLayout Path="Prefabs/Environment/Galaxy/Galaxy_Disk4_A" Weight="1"/>
+		<GalaxyViewLayout Path="Prefabs/Environment/Galaxy/Galaxy_Disk4_D" Weight="1"/>
+		<Regions>
+			<Region color="#FFFFFF" empirestart="0"/>
+			<Region color="#FFFF00" empirestart="1"/>
+			<!-- yellow -->
+			<Region color="#00FFFF" empirestart="1"/>
+			<!-- teal -->
+			<Region color="#008080" empirestart="1"/>
+			<!-- dark-teal -->
+			<Region color="#FF00FF" empirestart="1"/>
+			<!-- pink -->
+			<Region color="#800080" empirestart="1"/>
+			<!-- purple -->
+			<Region color="#0000FF" empirestart="1"/>
+			<!-- blue -->
+			<Region color="#00FF00" empirestart="1"/>
+			<!-- green -->
+			<Region color="#FF0000" empirestart="1"/>
+			<!-- red -->
+		</Regions>
+	</GalaxyShape>
+	
+	<GalaxyShape Name="GalaxySpiral" MinEmpires="2" MaxEmpires="16">
+		<SymetryOptions>
+			<SymetryOption PlayerNum="2"/>
+			<SymetryOption PlayerNum="4"/>
+			<SymetryOption PlayerNum="8"/>
+		</SymetryOptions>
+		<Script>
+			<![CDATA[
+var ArmNumber = Configuration.ArmNumber();
+var EmpiresNumber = Configuration.EmpiresNumber();
+var Population = Configuration.Population();
+var angle = 360 / ArmNumber;
+var ArmSizeMultiplier = Math.min(0.2, 1.2 / ArmNumber); // 0.15 * hsize fuer 8 arme
+var hsize = Math.sqrt(Population) * 25 * ArmSizeMultiplier * 8 / 1.2;
+var ArmSize = ArmSizeMultiplier * hsize;
+var circle = Ring(0, 0.2 * hsize);
+var arc = Arc(0.5 * hsize, hsize * 0.5 + ArmSize, 90);
+var core = Constellation();
+core.GenerateStarSystems(circle, Population * 0.8);
+core.GenerateWarps();
+var arms = new Array();
+var i = 0;
+for(var i = 0; i < ArmNumber; i++)
+{
+	arms[i] = Constellation();
+	arms[i].GenerateStarSystems(arc, Population);
+	arms[i].Translate(-0.5 * hsize - ArmSize / 2, 0.3 * hsize);
+	arms[i].Rotate(angle * i);
+	arms[i].GenerateWarps();
+}
+
+for(var i = 1; i < ArmNumber; i++)
+{
+	Connect(core, arms[i], [arms[(i+1)%ArmNumber],arms[(ArmNumber+i-1)%ArmNumber]]);
+}
+Connect(core, arms[0], [arms[1],arms[ArmNumber-1]]);
+
+var diff = ArmNumber / EmpiresNumber;
+var EmpireID = 0;
+for(var i = 0; EmpireID < EmpiresNumber; i+= diff)
+{
+	arms[Math.floor(i)%ArmNumber].GenerateHome(EmpireID);
+	EmpireID++;
+}
+			]]>
+		</Script>
+		<GalaxyViewLayout Path="Prefabs/Environment/Galaxy/Galaxy_Disk4_A" Weight="1"/>
+		<GalaxyViewLayout Path="Prefabs/Environment/Galaxy/Galaxy_Disk4_D" Weight="1"/>
+		<Regions>
+			<Region color="#FFFFFF" empirestart="0"/>
+			<Region color="#FFFF00" empirestart="1"/>
+			<!-- yellow -->
+			<Region color="#00FFFF" empirestart="1"/>
+			<!-- teal -->
+			<Region color="#008080" empirestart="1"/>
+			<!-- dark-teal -->
+			<Region color="#FF00FF" empirestart="1"/>
+			<!-- pink -->
+			<Region color="#800080" empirestart="1"/>
+			<!-- purple -->
+			<Region color="#0000FF" empirestart="1"/>
+			<!-- blue -->
+			<Region color="#00FF00" empirestart="1"/>
+			<!-- green -->
+			<Region color="#FF0000" empirestart="1"/>
+			<!-- red -->
+		</Regions>
+	</GalaxyShape>
 </GalaxyShapes>
