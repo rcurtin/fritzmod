@@ -557,7 +557,7 @@
 
   <SimulationObjectDescriptor Name="Achievement_CascadeEndlessFacility_2C_1Descriptor" Type="NegativeFactionEvent" Serializable="false">
     <SimulationObjectPropertyModifierDescriptors>
-      <SimulationObjectPropertyModifierDescriptor TargetProperty="MaxHeroes" Value="1" OperationType="Addition" Path="ClassEmpire"/>
+      <SimulationObjectPropertyModifierDescriptor TargetProperty="MaxHeroes" Value="10" OperationType="Addition" Path="ClassEmpire"/>
     </SimulationObjectPropertyModifierDescriptors>
   </SimulationObjectDescriptor>
 

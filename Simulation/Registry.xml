@@ -57,11 +57,11 @@
           <MaximumNumberOfAvailableShipDesigns>10</MaximumNumberOfAvailableShipDesigns>
         </DepartmentOfDefense>
         <DepartmentOfEducation>
-          <MaxHeroesToRecruitmentPool>3</MaxHeroesToRecruitmentPool>
+          <MaxHeroesToRecruitmentPool>10</MaxHeroesToRecruitmentPool>
           <!-- <NewHeroRemainingTurns>50</NewHeroRemainingTurns> obsolete -->
           <RecoveredHeroTurnsBeforeLeave>2</RecoveredHeroTurnsBeforeLeave>
           <FixedHeroRecruitmentCost>20</FixedHeroRecruitmentCost>
-          <VariableHeroRecruitmentCost>60</VariableHeroRecruitmentCost>
+          <VariableHeroRecruitmentCost>20</VariableHeroRecruitmentCost>
           <PowerHeroCountRecruitmentCost>1</PowerHeroCountRecruitmentCost>
           <HeroHealingCostConstant>5</HeroHealingCostConstant>
           <HeroHealingCostFatigueCoef>20</HeroHealingCostFatigueCoef>

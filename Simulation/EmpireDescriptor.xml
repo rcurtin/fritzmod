@@ -78,9 +78,9 @@
       <SimulationObjectPropertyDescriptor Name="NumberOfSystem" Value="0"/>
       
       <!-- Heroes related -->
-      <SimulationObjectPropertyDescriptor Name="MaxHeroes" Value="3"/>
+      <SimulationObjectPropertyDescriptor Name="MaxHeroes" Value="60"/>
       <SimulationObjectPropertyDescriptor Name="ExtraClonesAllowed" Value="0"/>
-      <SimulationObjectPropertyDescriptor Name="TurnsBeforeNewHero" Value="50"/>
+      <SimulationObjectPropertyDescriptor Name="TurnsBeforeNewHero" Value="25"/>
       <SimulationObjectPropertyDescriptor Name="HeroInitialXP" Value="0"/>
       <!--There are 4 ways for heroes to gain experience (the associated base values can be modified independently)
         - after a battle (the amount gained depends on the battle result) 
@@ -416,23 +416,23 @@
   <!-- HEROES QUANTITY -->
   <SimulationObjectDescriptor Name="MaxHeroQuantity1" Type="MaxHeroQuantity1" Serializable="true">
     <SimulationObjectPropertyModifierDescriptors>
-      <SimulationObjectPropertyModifierDescriptor TargetProperty="MaxHeroes" Value="2" OperationType="Addition" Path="ClassEmpire" IsBase="true"/>
-      <SimulationObjectPropertyModifierDescriptor TargetProperty="TurnsBeforeNewHero" Value="-10" OperationType="Addition" Path="ClassEmpire" IsBase="true"/>
+      <SimulationObjectPropertyModifierDescriptor TargetProperty="MaxHeroes" Value="20" OperationType="Addition" Path="ClassEmpire" IsBase="true"/>
+      <SimulationObjectPropertyModifierDescriptor TargetProperty="TurnsBeforeNewHero" Value="-2" OperationType="Addition" Path="ClassEmpire" IsBase="true"/>
     </SimulationObjectPropertyModifierDescriptors>
   </SimulationObjectDescriptor>
 
   <SimulationObjectDescriptor Name="MaxHeroQuantity2" Type="MaxHeroQuantity2" Serializable="true">
     <SimulationObjectPropertyModifierDescriptors>
-      <SimulationObjectPropertyModifierDescriptor TargetProperty="MaxHeroes" Value="3" OperationType="Addition" Path="ClassEmpire" IsBase="true"/>
-      <SimulationObjectPropertyModifierDescriptor TargetProperty="TurnsBeforeNewHero" Value="-10" OperationType="Addition" Path="ClassEmpire" IsBase="true"/>
+      <SimulationObjectPropertyModifierDescriptor TargetProperty="MaxHeroes" Value="30" OperationType="Addition" Path="ClassEmpire" IsBase="true"/>
+      <SimulationObjectPropertyModifierDescriptor TargetProperty="TurnsBeforeNewHero" Value="-2" OperationType="Addition" Path="ClassEmpire" IsBase="true"/>
     </SimulationObjectPropertyModifierDescriptors>
   </SimulationObjectDescriptor>
   
   <SimulationObjectDescriptor Name="MaxHeroQuantity2Horatio" Type="MaxHeroQuantity2Horatio" Serializable="true">
     <SimulationObjectPropertyModifierDescriptors>
-      <SimulationObjectPropertyModifierDescriptor TargetProperty="MaxHeroes" Value="3" OperationType="Addition" Path="ClassEmpire" IsBase="true"/>
+      <SimulationObjectPropertyModifierDescriptor TargetProperty="MaxHeroes" Value="30" OperationType="Addition" Path="ClassEmpire" IsBase="true"/>
       <SimulationObjectPropertyModifierDescriptor TargetProperty="ExtraClonesAllowed" Value="3" OperationType="Addition" Path="ClassEmpire" IsBase="true"/>
-      <SimulationObjectPropertyModifierDescriptor TargetProperty="TurnsBeforeNewHero" Value="-10" OperationType="Addition" Path="ClassEmpire" IsBase="true"/>
+      <SimulationObjectPropertyModifierDescriptor TargetProperty="TurnsBeforeNewHero" Value="-2" OperationType="Addition" Path="ClassEmpire" IsBase="true"/>
     </SimulationObjectPropertyModifierDescriptors>
   </SimulationObjectDescriptor>
 
@@ -443,7 +443,7 @@
   <!-- HERO XP BONUS -->
   <SimulationObjectDescriptor Name="HeroXPBonus1" Type="HeroXPBonus1" Serializable="true">
     <SimulationObjectPropertyModifierDescriptors>
-      <SimulationObjectPropertyModifierDescriptor TargetProperty="TurnsBeforeNewHero" Value="-5" OperationType="Addition" Path="ClassEmpire" IsBase="true"/>
+      <SimulationObjectPropertyModifierDescriptor TargetProperty="TurnsBeforeNewHero" Value="-3" OperationType="Addition" Path="ClassEmpire" IsBase="true"/>
       <SimulationObjectPropertyModifierDescriptor TargetProperty="XPPerBattleBonus" Value="0.2" OperationType="Percent" Path="ClassEmpire//ClassHero"/>
       <SimulationObjectPropertyModifierDescriptor TargetProperty="XPPerAssignedTurnBonus" Value="0.2" OperationType="Percent" Path="ClassEmpire//ClassHero"/>
       <SimulationObjectPropertyModifierDescriptor TargetProperty="XPPerConstructionBonus" Value="0.2" OperationType="Percent" Path="ClassEmpire//ClassHero"/>
@@ -453,7 +453,7 @@
 
   <SimulationObjectDescriptor Name="HeroXPBonus1Resistance" Type="HeroXPBonus1Resistance" Serializable="true">
     <SimulationObjectPropertyModifierDescriptors>
-      <SimulationObjectPropertyModifierDescriptor TargetProperty="TurnsBeforeNewHero" Value="-10" OperationType="Addition" Path="ClassEmpire" IsBase="true"/>
+      <SimulationObjectPropertyModifierDescriptor TargetProperty="TurnsBeforeNewHero" Value="-2" OperationType="Addition" Path="ClassEmpire" IsBase="true"/>
       <SimulationObjectPropertyModifierDescriptor TargetProperty="XPPerBattleBonus" Value="0.3" OperationType="Percent" Path="ClassEmpire//ClassHero"/>
       <SimulationObjectPropertyModifierDescriptor TargetProperty="XPPerAssignedTurnBonus" Value="0.3" OperationType="Percent" Path="ClassEmpire//ClassHero"/>
       <SimulationObjectPropertyModifierDescriptor TargetProperty="XPPerConstructionBonus" Value="0.3" OperationType="Percent" Path="ClassEmpire//ClassHero"/>
@@ -463,7 +463,7 @@
 
   <SimulationObjectDescriptor Name="HeroXPBonus2" Type="HeroXPBonus2" Serializable="true">
     <SimulationObjectPropertyModifierDescriptors>
-      <SimulationObjectPropertyModifierDescriptor TargetProperty="TurnsBeforeNewHero" Value="-5" OperationType="Addition" Path="ClassEmpire" IsBase="true"/>
+      <SimulationObjectPropertyModifierDescriptor TargetProperty="TurnsBeforeNewHero" Value="-1" OperationType="Addition" Path="ClassEmpire" IsBase="true"/>
       <SimulationObjectPropertyModifierDescriptor TargetProperty="XPPerBattleBonus" Value="0.5" OperationType="Percent" Path="ClassEmpire//ClassHero"/>
       <SimulationObjectPropertyModifierDescriptor TargetProperty="XPPerAssignedTurnBonus" Value="0.5" OperationType="Percent" Path="ClassEmpire//ClassHero"/>
       <SimulationObjectPropertyModifierDescriptor TargetProperty="XPPerConstructionBonus" Value="0.5" OperationType="Percent" Path="ClassEmpire//ClassHero"/>
