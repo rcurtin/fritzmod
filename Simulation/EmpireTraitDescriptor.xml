@@ -612,25 +612,25 @@
   <!-- Big Fleets* -->
   <SimulationObjectDescriptor Name="TraitFleet02Norm1" Type="TraitFleet02" Serializable="true">
     <SimulationObjectPropertyModifierDescriptors>
-      <SimulationObjectPropertyModifierDescriptor TargetProperty="MaxCommandPoint" Value="1" OperationType="Addition" Path="ClassEmpire"/>
+      <SimulationObjectPropertyModifierDescriptor TargetProperty="MaxCommandPoint" Value="10" OperationType="Addition" Path="ClassEmpire"/>
     </SimulationObjectPropertyModifierDescriptors>
     <SimulationObjectPropertyDescriptors />
   </SimulationObjectDescriptor>
   <SimulationObjectDescriptor Name="TraitFleet02Norm2" Type="TraitFleet02" Serializable="true">
     <SimulationObjectPropertyModifierDescriptors>
-      <SimulationObjectPropertyModifierDescriptor TargetProperty="MaxCommandPoint" Value="2" OperationType="Addition" Path="ClassEmpire"/>
+      <SimulationObjectPropertyModifierDescriptor TargetProperty="MaxCommandPoint" Value="20" OperationType="Addition" Path="ClassEmpire"/>
     </SimulationObjectPropertyModifierDescriptors>
     <SimulationObjectPropertyDescriptors />
   </SimulationObjectDescriptor>
   <SimulationObjectDescriptor Name="TraitFleet02Alt1" Type="TraitFleet02" Serializable="true">
     <SimulationObjectPropertyModifierDescriptors>
-      <SimulationObjectPropertyModifierDescriptor TargetProperty="MaxCommandPoint" Value="-1" OperationType="Addition" Path="ClassEmpire"/>
+      <SimulationObjectPropertyModifierDescriptor TargetProperty="MaxCommandPoint" Value="-10" OperationType="Addition" Path="ClassEmpire"/>
     </SimulationObjectPropertyModifierDescriptors>
     <SimulationObjectPropertyDescriptors />
   </SimulationObjectDescriptor>
   <SimulationObjectDescriptor Name="TraitFleet02Alt2" Type="TraitFleet02" Serializable="true">
     <SimulationObjectPropertyModifierDescriptors>
-      <SimulationObjectPropertyModifierDescriptor TargetProperty="MaxCommandPoint" Value="-2" OperationType="Addition" Path="ClassEmpire"/>
+      <SimulationObjectPropertyModifierDescriptor TargetProperty="MaxCommandPoint" Value="-20" OperationType="Addition" Path="ClassEmpire"/>
     </SimulationObjectPropertyModifierDescriptors>
     <SimulationObjectPropertyDescriptors />
   </SimulationObjectDescriptor>

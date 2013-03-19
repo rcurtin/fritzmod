@@ -63,7 +63,7 @@
       <!-- Allow the gameplay to get the "minimal" fleet speed of the whole empire. -->
       <SimulationObjectPropertyDescriptor Name="Speed" Value="0"/>
       <SimulationObjectPropertyDescriptor Name="FreeSpeed" Value="0"/>
-      <SimulationObjectPropertyDescriptor Name="MaxCommandPoint" Value="5"/>
+      <SimulationObjectPropertyDescriptor Name="MaxCommandPoint" Value="100"/>
       <SimulationObjectPropertyDescriptor Name="CommandPoint" IsCompound="true"/>
       <SimulationObjectPropertyDescriptor Name="WonderScore" Value="0"/>
 
@@ -328,7 +328,7 @@
   <!-- Placeholders with maximum CP obtained through their real effects -->
   <SimulationObjectDescriptor Name="MaxFleetSize1" Type="MaxFleetSize1" Serializable="true">
     <SimulationObjectPropertyModifierDescriptors>
-      <SimulationObjectPropertyModifierDescriptor TargetProperty="MaxCommandPoint" Value="2" OperationType="Addition" Path="ClassEmpire"/>
+      <SimulationObjectPropertyModifierDescriptor TargetProperty="MaxCommandPoint" Value="20" OperationType="Addition" Path="ClassEmpire"/>
     </SimulationObjectPropertyModifierDescriptors>
   </SimulationObjectDescriptor>
   
@@ -346,13 +346,13 @@
 
   <SimulationObjectDescriptor Name="MaxFleetSize3" Type="MaxFleetSize3" Serializable="true">
     <SimulationObjectPropertyModifierDescriptors>
-      <SimulationObjectPropertyModifierDescriptor TargetProperty="MaxCommandPoint" Value="3" OperationType="Addition" Path="ClassEmpire"/>
+      <SimulationObjectPropertyModifierDescriptor TargetProperty="MaxCommandPoint" Value="30" OperationType="Addition" Path="ClassEmpire"/>
     </SimulationObjectPropertyModifierDescriptors>
   </SimulationObjectDescriptor>
 
   <SimulationObjectDescriptor Name="MaxFleetSize4" Type="MaxFleetSize4" Serializable="true">
     <SimulationObjectPropertyModifierDescriptors>
-      <SimulationObjectPropertyModifierDescriptor TargetProperty="MaxCommandPoint" Value="4" OperationType="Addition" Path="ClassEmpire"/>
+      <SimulationObjectPropertyModifierDescriptor TargetProperty="MaxCommandPoint" Value="40" OperationType="Addition" Path="ClassEmpire"/>
     </SimulationObjectPropertyModifierDescriptors>
   </SimulationObjectDescriptor>
 
@@ -1291,31 +1291,31 @@
 
   <SimulationObjectDescriptor Name="ShipClassUnlockedSmall2" Type="ShipClassUnlockedSmall2" Serializable="true">
     <SimulationObjectPropertyModifierDescriptors>
-      <SimulationObjectPropertyModifierDescriptor TargetProperty="MaxCommandPoint" Value="2" OperationType="Addition" Path="ClassEmpire,MaxFleetSize2"/>
+      <SimulationObjectPropertyModifierDescriptor TargetProperty="MaxCommandPoint" Value="20" OperationType="Addition" Path="ClassEmpire,MaxFleetSize2"/>
     </SimulationObjectPropertyModifierDescriptors>
   </SimulationObjectDescriptor>
 
   <SimulationObjectDescriptor Name="ShipClassUnlockedMedium1" Type="ShipClassUnlockedMedium1" Serializable="true">
     <SimulationObjectPropertyModifierDescriptors>
-      <SimulationObjectPropertyModifierDescriptor TargetProperty="MaxCommandPoint" Value="2" OperationType="Addition" Path="ClassEmpire,MaxFleetSize2"/>
+      <SimulationObjectPropertyModifierDescriptor TargetProperty="MaxCommandPoint" Value="20" OperationType="Addition" Path="ClassEmpire,MaxFleetSize2"/>
     </SimulationObjectPropertyModifierDescriptors>
   </SimulationObjectDescriptor>
 
   <SimulationObjectDescriptor Name="ShipClassUnlockedMedium2" Type="ShipClassUnlockedMedium2" Serializable="true">
     <SimulationObjectPropertyModifierDescriptors>
-      <SimulationObjectPropertyModifierDescriptor TargetProperty="MaxCommandPoint" Value="2" OperationType="Addition" Path="ClassEmpire,MaxFleetSize2"/>
+      <SimulationObjectPropertyModifierDescriptor TargetProperty="MaxCommandPoint" Value="20" OperationType="Addition" Path="ClassEmpire,MaxFleetSize2"/>
     </SimulationObjectPropertyModifierDescriptors>
   </SimulationObjectDescriptor>
 
   <SimulationObjectDescriptor Name="ShipClassUnlockedLarge1" Type="ShipClassUnlockedLarge1" Serializable="true">
     <SimulationObjectPropertyModifierDescriptors>
-      <SimulationObjectPropertyModifierDescriptor TargetProperty="MaxCommandPoint" Value="2" OperationType="Addition" Path="ClassEmpire,MaxFleetSize2"/>
+      <SimulationObjectPropertyModifierDescriptor TargetProperty="MaxCommandPoint" Value="20" OperationType="Addition" Path="ClassEmpire,MaxFleetSize2"/>
     </SimulationObjectPropertyModifierDescriptors>
   </SimulationObjectDescriptor>
 
   <SimulationObjectDescriptor Name="ShipClassUnlockedAllCravers" Type="ShipClassUnlockedAll" Serializable="true">
     <SimulationObjectPropertyModifierDescriptors>
-      <SimulationObjectPropertyModifierDescriptor TargetProperty="MaxCommandPoint" Value="2" OperationType="Addition" Path="ClassEmpire,ShipClassUnlockedSmall2,ShipClassUnlockedMedium1,ShipClassUnlockedMedium2,ShipClassUnlockedLarge1"/>
+      <SimulationObjectPropertyModifierDescriptor TargetProperty="MaxCommandPoint" Value="20" OperationType="Addition" Path="ClassEmpire,ShipClassUnlockedSmall2,ShipClassUnlockedMedium1,ShipClassUnlockedMedium2,ShipClassUnlockedLarge1"/>
     </SimulationObjectPropertyModifierDescriptors>
   </SimulationObjectDescriptor>
   
