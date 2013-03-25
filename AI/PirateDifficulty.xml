@@ -10,7 +10,7 @@
               CanInvade="false"
               NumberFleetPerSpawn="1"
               MoveCoolDown="10"
-              PercentShipPerFleet="0.15"
+              PercentShipPerFleet="0.015"
               TechnologyGap ="1" >
       <Condition Name="TechnologyLevel"
                  LimitMin="4"/>
@@ -32,7 +32,7 @@
               CanInvade="false"
               NumberFleetPerSpawn="1"
               MoveCoolDown="10"
-              PercentShipPerFleet="0.3"
+              PercentShipPerFleet="0.03"
               TechnologyGap ="1" >
       <Condition Name="TechnologyLevel" LimitMin="5"/>
       
@@ -54,7 +54,7 @@
               CanInvade="false"
               NumberFleetPerSpawn="1"
               MoveCoolDown="5"
-              PercentShipPerFleet="0.5"
+              PercentShipPerFleet="0.05"
               TechnologyGap ="1" >
 
       <Condition Name="ColonizedSystem" LimitMin="7"/>
@@ -76,7 +76,7 @@
             CanInvade="true"
             NumberFleetPerSpawn="1"
             MoveCoolDown="5"
-            PercentShipPerFleet="0.7"
+            PercentShipPerFleet="0.07"
             TechnologyGap ="3" >
       <Condition Name="BlockadeStarted" LimitMin="10"/>
       <Condition Name="ColonizedSystem" LimitMin="7"/>
@@ -115,7 +115,7 @@
           CanInvade="true"
           NumberFleetPerSpawn="2"
           MoveCoolDown="3"
-          PercentShipPerFleet="1"
+          PercentShipPerFleet="0.1"
           TechnologyGap ="4" >
       <Condition Name="NeutralSystemPercent" LimitMax="0.1"/>
 
