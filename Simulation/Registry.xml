@@ -54,7 +54,7 @@
           <FleetWaitDuration>1</FleetWaitDuration>
           <FleetParsecPerSecond>10</FleetParsecPerSecond>
           <FleetNameMaxIndex>24</FleetNameMaxIndex>
-          <MaximumNumberOfAvailableShipDesigns>10</MaximumNumberOfAvailableShipDesigns>
+          <MaximumNumberOfAvailableShipDesigns>1000</MaximumNumberOfAvailableShipDesigns>
         </DepartmentOfDefense>
         <DepartmentOfEducation>
           <MaxHeroesToRecruitmentPool>10</MaxHeroesToRecruitmentPool>
